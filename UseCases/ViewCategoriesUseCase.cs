@@ -1,9 +1,10 @@
 ﻿using CoreBusiness;
 using UseCases.DataStorePluginInterfaces;
+using UseCases.UseCaseInterfaces;
 
 namespace UseCases
 {
-    public class ViewCategoriesUseCase
+    public class ViewCategoriesUseCase : IViewCategoriesUseCase
     {
         private readonly ICategoryRepository categoryRepo;
 

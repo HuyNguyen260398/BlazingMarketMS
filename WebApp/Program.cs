@@ -1,5 +1,7 @@
 using Plugin.DataStore.InMemory;
+using UseCases;
 using UseCases.DataStorePluginInterfaces;
+using UseCases.UseCaseInterfaces;
 using WebApp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,8 +11,11 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 
-// Dependency Injection
+// DI for In-Memory Data Store
 builder.Services.AddScoped<ICategoryRepository, CategoryInMemoryRepository>();
+
+// DI for Use Cases and Repositories
+builder.Services.AddScoped<IViewCategoriesUseCase, ViewCategoriesUseCase>();
 
 var app = builder.Build();
 
