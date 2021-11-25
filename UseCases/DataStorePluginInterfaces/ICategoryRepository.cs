@@ -8,5 +8,6 @@ namespace UseCases.DataStorePluginInterfaces
         IEnumerable<Category> GetCategories();
         Category GetCategoryById(int categoryId);
         void UpdateCategory(Category category);
+        void DeleteCategory(int categoryId);
     }
 }
