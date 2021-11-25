@@ -1,4 +1,6 @@
 ﻿@page "/addcategory"
+@inject NavigationManager NavManager
+@inject IAddCategoryUseCase AddCategoryUseCase
 
 <h3>Add Category</h3>
 
@@ -17,6 +19,7 @@
         </div>
         <br />
         <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-secondary" @onclick="OnCancel">Cancel</button>
     </EditForm>
 }
 
@@ -32,6 +35,12 @@
 
     private void OnValidSubmit()
     {
-        
+        AddCategoryUseCase.Execute(category);
+        NavManager.NavigateTo("/categories");
+    }
+
+    private void OnCancel()
+    {
+        NavManager.NavigateTo("/categories");
     }
 }
