@@ -15,8 +15,9 @@ builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddScoped<ICategoryRepository, CategoryInMemoryRepository>();
 
 // DI for Use Cases and Repositories
-builder.Services.AddTransient<IViewCategoriesUseCase, ViewCategoriesUseCase>();
 builder.Services.AddTransient<IAddCategoryUseCase, AddCategoryUseCase>();
+builder.Services.AddTransient<IViewCategoriesUseCase, ViewCategoriesUseCase>();
+builder.Services.AddTransient<IEditCategoryUseCase, EditCategoryUseCase>();
 
 var app = builder.Build();
 
