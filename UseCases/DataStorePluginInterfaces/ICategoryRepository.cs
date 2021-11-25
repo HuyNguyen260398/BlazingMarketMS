@@ -6,6 +6,7 @@ namespace UseCases.DataStorePluginInterfaces
     {
         void AddCategory(Category category);
         IEnumerable<Category> GetCategories();
+        Category GetCategoryById(int categoryId);
         void UpdateCategory(Category category);
     }
 }
