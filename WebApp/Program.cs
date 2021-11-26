@@ -13,6 +13,7 @@ builder.Services.AddSingleton<WeatherForecastService>();
 
 // DI for In-Memory Data Store
 builder.Services.AddScoped<ICategoryRepository, CategoryInMemoryRepository>();
+builder.Services.AddScoped<IProductRepository, ProductInMemoryRepository>();
 
 // DI for Use Cases and Repositories
 builder.Services.AddTransient<IAddCategoryUseCase, AddCategoryUseCase>();
@@ -20,6 +21,7 @@ builder.Services.AddTransient<IViewCategoriesUseCase, ViewCategoriesUseCase>();
 builder.Services.AddTransient<IGetCategoryByIdUseCase, GetCategoryByIdUseCase>();
 builder.Services.AddTransient<IEditCategoryUseCase, EditCategoryUseCase>();
 builder.Services.AddTransient<IDeleteCategoryUseCase, DeleteCategoryUseCase>();
+builder.Services.AddTransient<IViewProductsUseCase, IViewProductsUseCase>();
 
 var app = builder.Build();
 
