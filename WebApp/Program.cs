@@ -1,5 +1,5 @@
 using Plugin.DataStore.InMemory;
-using UseCases;
+using UseCases.CategoriesUseCases;
 using UseCases.DataStorePluginInterfaces;
 using UseCases.UseCaseInterfaces;
 using WebApp.Data;
