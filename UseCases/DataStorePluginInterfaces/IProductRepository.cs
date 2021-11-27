@@ -6,5 +6,7 @@ namespace UseCases.DataStorePluginInterfaces
     {
         void AddProduct(Product product);
         IEnumerable<Product> GetProducts();
+        Product GetProductById(int productId);
+        void UpdateProduct(Product product);
     }
 }
