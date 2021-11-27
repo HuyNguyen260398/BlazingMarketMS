@@ -42,7 +42,7 @@ namespace Plugin.DataStore.InMemory
 
         public Product GetProductById(int productId)
         {
-            return products?.FirstOrDefault(p => p.ProductId == productId);
+            return products.FirstOrDefault(p => p.ProductId == productId);
         }
 
         public void UpdateProduct(Product product)
@@ -55,6 +55,13 @@ namespace Plugin.DataStore.InMemory
                 productToUpdate.Quantity = product.Quantity;
                 productToUpdate.Price = product.Price;
             }
+        }
+
+        public void DeleteProduct(int productId)
+        {
+            var productToDelete = GetProductById(productId);
+            if (productToDelete != null)
+                products.Remove(productToDelete);
         }
     }
 }
