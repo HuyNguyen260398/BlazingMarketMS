@@ -2,20 +2,19 @@
 using UseCases.DataStorePluginInterfaces;
 using UseCases.UseCaseInterfaces;
 
-namespace UseCases.CategoriesUseCases
+namespace UseCases.CategoriesUseCases;
+
+public class EditCategoryUseCase : IEditCategoryUseCase
 {
-    public class EditCategoryUseCase : IEditCategoryUseCase
+    private readonly ICategoryRepository categoryRepository;
+
+    public EditCategoryUseCase(ICategoryRepository categoryRepository)
     {
-        private readonly ICategoryRepository categoryRepository;
+        this.categoryRepository = categoryRepository;
+    }
 
-        public EditCategoryUseCase(ICategoryRepository categoryRepository)
-        {
-            this.categoryRepository = categoryRepository;
-        }
-
-        public void Execute(Category category)
-        {
-            categoryRepository.UpdateCategory(category);
-        }
+    public void Execute(Category category)
+    {
+        categoryRepository.UpdateCategory(category);
     }
 }

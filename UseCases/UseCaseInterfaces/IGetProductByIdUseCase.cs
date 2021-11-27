@@ -1,9 +1,8 @@
 ﻿using CoreBusiness;
 
-namespace UseCases.UseCaseInterfaces
+namespace UseCases.UseCaseInterfaces;
+
+public interface IGetProductByIdUseCase
 {
-    public interface IGetProductByIdUseCase
-    {
-        Product Execute(int productId);
-    }
+    Product Execute(int productId);
 }

@@ -2,20 +2,19 @@
 using UseCases.DataStorePluginInterfaces;
 using UseCases.UseCaseInterfaces;
 
-namespace UseCases.ProductsUseCases
+namespace UseCases.ProductsUseCases;
+
+public class AddProductUseCase : IAddProductUseCase
 {
-    public class AddProductUseCase : IAddProductUseCase
+    private readonly IProductRepository productRepository;
+
+    public AddProductUseCase(IProductRepository productRepository)
     {
-        private readonly IProductRepository productRepository;
+        this.productRepository = productRepository;
+    }
 
-        public AddProductUseCase(IProductRepository productRepository)
-        {
-            this.productRepository = productRepository;
-        }
-
-        public void Execute(Product product)
-        {
-            productRepository.AddProduct(product);
-        }
+    public void Execute(Product product)
+    {
+        productRepository.AddProduct(product);
     }
 }

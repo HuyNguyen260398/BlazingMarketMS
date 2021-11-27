@@ -1,9 +1,8 @@
 ﻿using CoreBusiness;
 
-namespace UseCases.UseCaseInterfaces
+namespace UseCases.UseCaseInterfaces;
+
+public interface IViewCategoriesUseCase
 {
-    public interface IViewCategoriesUseCase
-    {
-        IEnumerable<Category> Execute();
-    }
+    IEnumerable<Category> Execute();
 }

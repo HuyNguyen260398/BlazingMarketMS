@@ -1,9 +1,8 @@
 ﻿using CoreBusiness;
 
-namespace UseCases.UseCaseInterfaces
+namespace UseCases.UseCaseInterfaces;
+
+public interface IEditCategoryUseCase
 {
-    public interface IEditCategoryUseCase
-    {
-        void Execute(Category category);
-    }
+    void Execute(Category category);
 }

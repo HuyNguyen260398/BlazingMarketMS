@@ -1,9 +1,8 @@
 ﻿using CoreBusiness;
 
-namespace UseCases.UseCaseInterfaces
+namespace UseCases.UseCaseInterfaces;
+
+public interface IEditProductUseCase
 {
-    public interface IEditProductUseCase
-    {
-        void Execute(Product product);
-    }
+    void Execute(Product product);
 }

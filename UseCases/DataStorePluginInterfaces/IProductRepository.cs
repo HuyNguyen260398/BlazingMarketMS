@@ -1,13 +1,12 @@
 ﻿using CoreBusiness;
 
-namespace UseCases.DataStorePluginInterfaces
+namespace UseCases.DataStorePluginInterfaces;
+
+public interface IProductRepository
 {
-    public interface IProductRepository
-    {
-        void AddProduct(Product product);
-        IEnumerable<Product> GetProducts();
-        Product GetProductById(int productId);
-        void UpdateProduct(Product product);
-        void DeleteProduct(int productId);
-    }
+    void AddProduct(Product product);
+    IEnumerable<Product> GetProducts();
+    Product GetProductById(int productId);
+    void UpdateProduct(Product product);
+    void DeleteProduct(int productId);
 }

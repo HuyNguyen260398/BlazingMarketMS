@@ -1,7 +1,6 @@
-﻿namespace UseCases.UseCaseInterfaces
+﻿namespace UseCases.UseCaseInterfaces;
+
+public interface IDeleteCategoryUseCase
 {
-    public interface IDeleteCategoryUseCase
-    {
-        void Execute(int categoryId);
-    }
+    void Execute(int categoryId);
 }

@@ -2,20 +2,19 @@
 using UseCases.DataStorePluginInterfaces;
 using UseCases.UseCaseInterfaces;
 
-namespace UseCases.CategoriesUseCases
+namespace UseCases.CategoriesUseCases;
+
+public class ViewCategoriesUseCase : IViewCategoriesUseCase
 {
-    public class ViewCategoriesUseCase : IViewCategoriesUseCase
+    private readonly ICategoryRepository categoryRepo;
+
+    public ViewCategoriesUseCase(ICategoryRepository categoryRepo)
     {
-        private readonly ICategoryRepository categoryRepo;
+        this.categoryRepo = categoryRepo;
+    }
 
-        public ViewCategoriesUseCase(ICategoryRepository categoryRepo)
-        {
-            this.categoryRepo = categoryRepo;
-        }
-
-        public IEnumerable<Category> Execute()
-        {
-            return categoryRepo.GetCategories();
-        }
+    public IEnumerable<Category> Execute()
+    {
+        return categoryRepo.GetCategories();
     }
 }

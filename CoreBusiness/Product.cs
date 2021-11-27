@@ -1,21 +1,20 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CoreBusiness
+namespace CoreBusiness;
+
+public class Product
 {
-    public class Product
-    {
-        public int ProductId { get; set; }
+    public int ProductId { get; set; }
 
-        [Required]
-        public int? CategoryId { get; set; }
+    [Required]
+    public int? CategoryId { get; set; }
 
-        [Required]
-        public string Name { get; set; }
+    [Required]
+    public string Name { get; set; }
 
-        [Required]
-        public int? Quantity { get; set; }
+    [Required]
+    public int? Quantity { get; set; }
 
-        [Required]
-        public double? Price { get; set; }
-    }
+    [Required]
+    public double? Price { get; set; }
 }

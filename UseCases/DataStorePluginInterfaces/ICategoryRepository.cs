@@ -1,13 +1,12 @@
 ﻿using CoreBusiness;
 
-namespace UseCases.DataStorePluginInterfaces
+namespace UseCases.DataStorePluginInterfaces;
+
+public interface ICategoryRepository
 {
-    public interface ICategoryRepository
-    {
-        void AddCategory(Category category);
-        IEnumerable<Category> GetCategories();
-        Category GetCategoryById(int categoryId);
-        void UpdateCategory(Category category);
-        void DeleteCategory(int categoryId);
-    }
+    void AddCategory(Category category);
+    IEnumerable<Category> GetCategories();
+    Category GetCategoryById(int categoryId);
+    void UpdateCategory(Category category);
+    void DeleteCategory(int categoryId);
 }
