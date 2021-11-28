@@ -63,4 +63,9 @@ public class ProductInMemoryRepository : IProductRepository
         if (productToDelete != null)
             products.Remove(productToDelete);
     }
+
+    public IEnumerable<Product> GetProductsByCategoryId(int categoryId)
+    {
+        return products.Where(p => p.CategoryId == categoryId);
+    }
 }
