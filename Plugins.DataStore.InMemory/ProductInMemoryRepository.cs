@@ -1,7 +1,7 @@
 ﻿using CoreBusiness;
 using UseCases.DataStorePluginInterfaces;
 
-namespace Plugin.DataStore.InMemory;
+namespace Plugins.DataStore.InMemory;
 
 public class ProductInMemoryRepository : IProductRepository
 {

@@ -1,4 +1,4 @@
-using Plugin.DataStore.InMemory;
+using Plugins.DataStore.InMemory;
 using UseCases;
 using UseCases.CategoriesUseCases;
 using UseCases.DataStorePluginInterfaces;
