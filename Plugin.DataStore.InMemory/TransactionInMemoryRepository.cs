@@ -30,6 +30,16 @@ public class TransactionInMemoryRepository : ITransactionRepository
             t.TimeStamp.Date == date.Date);
     }
 
+    public IEnumerable<Transaction> Search(string cashierName, DateTime startDate, DateTime endDate)
+    {
+        if (string.IsNullOrEmpty(cashierName))
+            return transactions.Where(t => t.TimeStamp.Date >= startDate.Date && t.TimeStamp.Date <= endDate.Date);
+        else
+            return transactions.Where(t =>
+            t.CashierName.Equals(cashierName, StringComparison.OrdinalIgnoreCase) &&
+            t.TimeStamp.Date >= startDate.Date && t.TimeStamp.Date <= endDate.Date);
+    }
+
     public void Save(string cashierName, int productId, string productName, double price, int beforeQty, int soldQty)
     {
         int transactionId = 0;
