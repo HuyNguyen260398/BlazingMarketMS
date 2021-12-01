@@ -17,4 +17,7 @@ public class Product
 
     [Required]
     public double? Price { get; set; }
+
+    // Navigation proptery for ef core
+    public Category Category { get; set; }
 }
