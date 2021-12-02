@@ -1,4 +1,6 @@
 ﻿@page "/addcategory"
+@attribute [Authorize(Policy = "AdminOnly")]
+
 @inject NavigationManager NavManager
 @inject IAddCategoryUseCase AddCategoryUseCase
 

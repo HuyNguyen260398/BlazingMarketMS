@@ -1,4 +1,5 @@
 ﻿using CoreBusiness;
+using Microsoft.EntityFrameworkCore;
 using UseCases.DataStorePluginInterfaces;
 
 namespace Plugins.DataStore.SQL;
@@ -22,7 +23,14 @@ public class TransactionRepository : ITransactionRepository
 
     public IEnumerable<Transaction> GetByDay(string cashierName, DateTime date)
     {
-        return Get(cashierName).Where(t => t.TimeStamp.Date == date.Date);
+        // return Get(cashierName).Where(t => t.TimeStamp.Date == date.Date);
+
+        if (string.IsNullOrWhiteSpace(cashierName))
+            return db.Transactions.Where(t => t.TimeStamp.Date == date.Date);
+        else
+            return db.Transactions.Where(t =>
+                EF.Functions.Like(t.CashierName, $"{cashierName}") &&
+                t.TimeStamp.Date == date.Date);
     }
 
     public void Save(string cashierName, int productId, string productName, double price, int beforeQty, int soldQty)
@@ -44,6 +52,13 @@ public class TransactionRepository : ITransactionRepository
 
     public IEnumerable<Transaction> Search(string cashierName, DateTime startDate, DateTime endDate)
     {
-        return Get(cashierName).Where(t => t.TimeStamp.Date >= startDate.Date && t.TimeStamp.Date <= endDate.Date.AddDays(1).Date);
+        // return Get(cashierName).Where(t => t.TimeStamp.Date >= startDate.Date && t.TimeStamp.Date <= endDate.Date.AddDays(1).Date);
+
+        if (string.IsNullOrWhiteSpace(cashierName))
+            return db.Transactions.Where(t => t.TimeStamp.Date >= startDate.Date && t.TimeStamp.Date <= endDate.Date.AddDays(1).Date);
+        else
+            return db.Transactions.Where(t =>
+                EF.Functions.Like(t.CashierName, $"{cashierName}") &&
+                t.TimeStamp.Date >= startDate.Date && t.TimeStamp.Date <= endDate.Date.AddDays(1).Date);
     }
 }
