@@ -19,9 +19,14 @@ builder.Services.AddDbContext<MarketContext>(options =>
 });
 
 // DI for In-Memory Data Store
-builder.Services.AddScoped<ICategoryRepository, CategoryInMemoryRepository>();
-builder.Services.AddScoped<IProductRepository, ProductInMemoryRepository>();
-builder.Services.AddScoped<ITransactionRepository, TransactionInMemoryRepository>();
+//builder.Services.AddScoped<ICategoryRepository, CategoryInMemoryRepository>();
+//builder.Services.AddScoped<IProductRepository, ProductInMemoryRepository>();
+//builder.Services.AddScoped<ITransactionRepository, TransactionInMemoryRepository>();
+
+// DI for EF Core SQL Data Store
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
 
 // DI for Use Cases and Repositories
 builder.Services.AddTransient<IAddCategoryUseCase, AddCategoryUseCase>();

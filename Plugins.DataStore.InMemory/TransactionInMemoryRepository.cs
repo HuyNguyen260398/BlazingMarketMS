@@ -37,7 +37,7 @@ public class TransactionInMemoryRepository : ITransactionRepository
         else
             return transactions.Where(t =>
             t.CashierName.Equals(cashierName, StringComparison.OrdinalIgnoreCase) &&
-            t.TimeStamp.Date >= startDate.Date && t.TimeStamp.Date <= endDate.Date);
+            t.TimeStamp.Date >= startDate.Date && t.TimeStamp.Date <= endDate.Date.AddDays(1).Date);
     }
 
     public void Save(string cashierName, int productId, string productName, double price, int beforeQty, int soldQty)
